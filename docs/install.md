@@ -5,13 +5,16 @@
 - [Docker Install for Windows and macOS](#docker-install)
 - [Usage](#usage)
   - [Web UI](#webui)
+  - [Web API (OpenAI Compatible)](#web-api-openai-compatible)
   - [CLI](#cli)
   - [Python API](#python-api)
 
 ### Linux and macOS Install
-The repo is developed and tested on `Ubuntu 20.04` and `Python 3.9`.
+**Tested Environments:**
+- [Original repository](https://github.com/myshell-ai/MeloTTS): Ubuntu 20.04 + Python 3.9
+- [This fork](https://github.com/not-hanjo-mei/MeloTTS): Ubuntu 24.04 + Python 3.10(conda 24.9.2), Debian 12 + Python 3.10(Micromamba 2.1.0)
 ```bash
-git clone https://github.com/myshell-ai/MeloTTS.git
+git clone https://github.com/not-hanjo-mei/MeloTTS.git
 cd MeloTTS
 pip install -e .
 python -m unidic download
@@ -25,7 +28,7 @@ To avoid compatibility issues, for Windows users and some macOS users, we sugges
 
 This could take a few minutes.
 ```bash
-git clone https://github.com/myshell-ai/MeloTTS.git
+git clone https://github.com/not-hanjo-mei/MeloTTS.git
 cd MeloTTS
 docker build -t melotts . 
 ```
@@ -50,6 +53,10 @@ The WebUI supports muliple languages and voices. First, follow the installation 
 melo-ui
 # Or: python melo/app.py
 ```
+
+### Web API (OpenAI Compatible)
+
+See [webapi.md](./webapi.md) for more details.
 
 ### CLI
 

@@ -12,12 +12,35 @@ import librosa
 from melo.text import cleaned_text_to_sequence, get_bert
 from melo.text.cleaner import clean_text
 from melo import commons
+import pyloudnorm as pyln
 
 MATPLOTLIB_FLAG = False
 
 logger = logging.getLogger(__name__)
 
+# Ref:
+# https://github.com/myshell-ai/MeloTTS/pull/221
+def fix_loudness(input, rate, target_lufs=-16.0, max_peak_dbfs=-2.0):
+    # Peak normalize to max_peak_dbfs dB
+    peak_normalized_audio = pyln.normalize.peak(input, max_peak_dbfs)
 
+    # Measure the loudness
+    meter = pyln.Meter(rate)
+    loudness = meter.integrated_loudness(peak_normalized_audio)
+
+    # Normalize the loudness to target_lufs
+    loudness_normalized_audio = pyln.normalize.loudness(peak_normalized_audio, loudness, target_lufs)
+    
+    final_peak_abs = np.max(np.abs(loudness_normalized_audio))
+    final_peak_dbfs = 20 * np.log10(final_peak_abs) if final_peak_abs > 0 else -100
+    
+    # Clip the peak to max_peak_dbfs
+    if final_peak_dbfs > max_peak_dbfs:
+        final_audio = pyln.normalize.peak(loudness_normalized_audio, max_peak_dbfs)
+    else:
+        final_audio = loudness_normalized_audio
+        
+    return final_audio
 
 def get_text_for_tts_infer(text, language_str, hps, device, symbol_to_id=None):
     norm_text, phone, tone, word2ph = clean_text(text, language_str)

@@ -238,7 +238,7 @@ if __name__ == "__main__":
 
     text = "NFT啊！chemistry 但是《原神》是由,米哈\游自主，  [研发]的一款全.新开放世界.冒险游戏"
     text = '我最近在学习machine learning，希望能够在未来的artificial intelligence领域有所建树。'
-    text = '今天下午，我们准备去shopping mall购物，然后晚上去看一场movie。'
+    text = '你们有一个好，全世界跑到什么地方，你们比其他的西方记者啊，跑得还快。但是呢，问来问去的问题啊，都 too simple ， sometimes naive !'
     text = '我们现在 also 能够 help 很多公司 use some machine learning 的 algorithms 啊!'
     text = text_normalize(text)
     print(text)

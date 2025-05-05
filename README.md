@@ -27,6 +27,8 @@ Some other features include:
 ## Usage
 - [Use without Installation](docs/quick_use.md)
 - [Install and Use Locally](docs/install.md)
+- [Deploy on Android](docs/deploy_on_android.md)
+- [OpenAI-compatible Web API](docs/webapi.md)
 - [Training on Custom Dataset](docs/training.md)
 
 The Python API and model cards can be found in [this repo](https://github.com/myshell-ai/MeloTTS/blob/main/docs/install.md#python-api) or on [HuggingFace](https://huggingface.co/myshell-ai).
