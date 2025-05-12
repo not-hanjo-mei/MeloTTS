@@ -1,0 +1,18 @@
+{
+  "custom_models": [
+    {
+      "model_id": "EN_Female",
+      "language": "EN",
+      "speaker_id": 0,
+      "config_path": "melo/logs/EN_Female/config.json",
+      "ckpt_path": "melo/logs/EN_Female/G_50000.pth"
+    },
+    {
+      "model_id": "JP_Kawaii",
+      "language": "JP",
+      "speaker_id": 1,
+      "config_path": "melo/logs/JP_Kawaii/config.json",
+      "ckpt_path": "melo/logs/JP_Kawaii/G_45000.pth"
+    }
+  ]
+}
