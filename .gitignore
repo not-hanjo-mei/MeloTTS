@@ -10,10 +10,11 @@ melo/data/Teto/
 logs/
 test.py
 bash.exe.stackdump
-import.log
 webapi/models.json
 
 *.zip
 *.mp3
 *.flac
 *.wav
+
+*.log
